@@ -1,0 +1,18 @@
+
+syntax = "proto3";
+
+option java_package = "com.example.grpc";
+option java_outer_classname = "TokenServiceProto";
+
+service TokenService {
+  rpc VerifyToken(TokenRequest) returns (TokenResponse);
+}
+
+message TokenRequest {
+  string token = 1;
+}
+
+message TokenResponse {
+  bool isValid = 1;
+  string userId = 2;
+}

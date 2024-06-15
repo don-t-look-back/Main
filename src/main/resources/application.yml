@@ -1,0 +1,28 @@
+spring:
+  config:
+    activate:
+      on-profile: ["local", "dev"]
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/challenge
+    driverClassName: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 1029
+
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    properties:
+      hibernate:
+        format_sql: true
+        show_sql: true
+        dialect: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      ddl-auto: validate
+
+  mvc:
+    pathmatch:
+      # swagger
+      matching-strategy: ant_path_matcher
+
+
+
