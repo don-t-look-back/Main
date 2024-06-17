@@ -84,4 +84,4 @@ jobs:
       - name: Update Kubernetes deployment
         run: |
           kubectl apply -f k8s/main-api-deployment.yaml
-          kubectl apply -f k8s/mysql-deployment.yaml
+          kubectl apply -f k8s/main-db-deployment.yaml
