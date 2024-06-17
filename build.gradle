@@ -103,10 +103,26 @@ protobuf {
             artifact = 'io.grpc:protoc-gen-grpc-java:1.40.1'
         }
     }
+//    generateProtoTasks {
+//        all().each { task ->
+//            task.plugins {
+//                grpc {}
+//            }
+//        }
+//    }
     generateProtoTasks {
         all().each { task ->
-            task.plugins {
-                grpc {}
+            if (task.name == 'generateTestProto') {
+                task.enabled = false
+            } else {
+                task.builtins {
+                    remove java
+                }
+                task.plugins {
+                    grpc {
+                        option 'lite'
+                    }
+                }
             }
         }
     }
