@@ -4,10 +4,10 @@ spring:
       on-profile: ["local", "dev"]
 
   datasource:
-    url: ${SPRING_DATASOURCE_URL}
-    username: ${SPRING_DATASOURCE_USERNAME}
-    password: ${SPRING_DATASOURCE_PASSWORD}
-    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://dlb-main-db.cts8su2ooplq.ap-northeast-2.rds.amazonaws.com:3306/main
+    driverClassName: com.mysql.cj.jdbc.Driver
+    username: dlb
+    password: dlb2024!!
 
 
   jpa:

@@ -40,7 +40,7 @@ dependencies {
     implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.0.3'
 
     // jasypt
-    // implementation "com.github.ulisesbocchio:jasypt-spring-boot-starter:3.0.3"
+    implementation "com.github.ulisesbocchio:jasypt-spring-boot-starter:3.0.3"
 
     //mysql connector
     implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.28'
