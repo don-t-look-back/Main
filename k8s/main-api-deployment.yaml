@@ -1,51 +1,38 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: main-api-deployment
+  name: main-server
   namespace: main-namespace
   annotations:
     kubernetes.io/change-cause: "Trigger rollout at $(date)"
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
-      app: main-api
+      app: main-server
   template:
     metadata:
       labels:
-        app: main-api
+        app: main-server
       annotations:
         timestamp: "$(date +%s)"  # 이 줄을 추가하여 강제로 업데이트
     spec:
       containers:
-        - name: main-api
+        - name: main-server
           image: 891377021190.dkr.ecr.ap-northeast-2.amazonaws.com/main-api:latest
-          env:
-            - name: SPRING_DATASOURCE_URL
-              value: jdbc:mysql://main-db:3306/challenge
-            - name: SPRING_DATASOURCE_USERNAME
-              valueFrom:
-                secretKeyRef:
-                  name: mysql-secret
-                  key: MYSQL_USER
-            - name: SPRING_DATASOURCE_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: mysql-secret
-                  key: MYSQL_PASSWORD
           ports:
             - containerPort: 8080
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: main-api-deployment
+  name: main-server
   namespace: main-namespace
 spec:
-  type: LoadBalancer
   selector:
-    app: main-api
+    app: main-server
   ports:
     - protocol: TCP
       port: 80
       targetPort: 8080
+      name: http
