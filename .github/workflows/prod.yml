@@ -79,7 +79,7 @@ jobs:
             --from-literal=MYSQL_USER=${{ secrets.MYSQL_USER }} \
             --from-literal=MYSQL_PASSWORD=${{ secrets.MYSQL_PASSWORD }} \
             --namespace main-namespace \
-            --dry-run=client -o yaml | kubectl apply -f -
+            --dry-run=client -o yaml | kubectl apply --validate=false -f -
 
       - name: Update Kubernetes deployment
         run: |
