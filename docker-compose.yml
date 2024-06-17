@@ -1,28 +1,28 @@
-version: '3.8'
-
-services:
-  db:
-    image: sodasu/dlb-main-db:latest
-    container_name: mysql_container
-    environment:
-      MYSQL_ROOT_PASSWORD: rootpassword
-      MYSQL_DATABASE: mydatabase
-      MYSQL_USER: myuser
-      MYSQL_PASSWORD: mypassword
-    ports:
-      - "3306:3306"
-
-  app:
-    image: sodasu/dlb-main:latest
-    container_name: spring_boot_app
-    environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/mydatabase
-      SPRING_DATASOURCE_USERNAME: myuser
-      SPRING_DATASOURCE_PASSWORD: mypassword
-    ports:
-      - "8080:8080"
-    depends_on:
-      - db
-
-
+#version: '3.8'
+#
+#services:
+#  db:
+#    image: sodasu/dlb-main-db:latest
+#    container_name: mysql_container
+#    environment:
+#      MYSQL_ROOT_PASSWORD: rootpassword
+#      MYSQL_DATABASE: mydatabase
+#      MYSQL_USER: myuser
+#      MYSQL_PASSWORD: mypassword
+#    ports:
+#      - "3306:3306"
+#
+#  app:
+#    image: sodasu/dlb-main:latest
+#    container_name: spring_boot_app
+#    environment:
+#      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/mydatabase
+#      SPRING_DATASOURCE_USERNAME: myuser
+#      SPRING_DATASOURCE_PASSWORD: mypassword
+#    ports:
+#      - "8080:8080"
+#    depends_on:
+#      - db
+#
+#
 
