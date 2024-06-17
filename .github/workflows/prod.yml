@@ -35,6 +35,10 @@ jobs:
           distribution: 'adopt'
           java-version: '17'
 
+      - name: Build with Gradle
+        run: ./gradlew clean build # 프로젝트 빌드
+        shell: bash
+
       - name: Build API Docker image
         run: docker build --file Dockerfile-api --platform linux/amd64 -t ${DOCKER_HUB_USERNAME}/dlb-main:latest .
 
