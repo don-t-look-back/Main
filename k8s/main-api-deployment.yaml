@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: main-server
-          image: 891377021190.dkr.ecr.ap-northeast-2.amazonaws.com/main-api:latest
+          image: sodasu/dlb-main
           ports:
             - containerPort: 8080
 ---
@@ -25,10 +25,10 @@ metadata:
   name: main-server
   namespace: main-namespace
 spec:
-  selector:
-    app: main-server
   ports:
-    - protocol: TCP
+    - name: http
       port: 80
       targetPort: 8080
-      name: http
+      protocol: TCP
+  selector:
+    app: main-server
