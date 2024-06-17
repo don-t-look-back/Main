@@ -3,8 +3,6 @@ kind: Deployment
 metadata:
   name: main-server
   namespace: main-namespace
-  annotations:
-    kubernetes.io/change-cause: "Trigger rollout at $(date)"
 spec:
   replicas: 1
   selector:
@@ -14,8 +12,6 @@ spec:
     metadata:
       labels:
         app: main-server
-      annotations:
-        timestamp: "$(date +%s)"  # 이 줄을 추가하여 강제로 업데이트
     spec:
       containers:
         - name: main-server
