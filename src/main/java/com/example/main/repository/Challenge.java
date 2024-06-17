@@ -30,6 +30,8 @@ public class Challenge {
 
     private String info;
 
+    private Long count;
+
     private Character branch; // 챌린지 분야 > 피그마에서 아이콘 선택하는 부분
 
     @CreatedDate
